@@ -1,9 +1,6 @@
 // Code Specific Header File(s)
 #include "inc/cc_device_img_capture_handler.hpp"
-#include "opencv2/imgcodecs.hpp"
 #include "opencv2/highgui.hpp"
-#include "opencv2/imgproc.hpp"
-#include <sstream>
 #include <iostream>
 
 using namespace std;
@@ -45,7 +42,7 @@ bool ImgCaptureHandler::getImage()
     }
 
     // writing the image to a defined location as JPG
-    bool check = imwrite(IMG_PATH, src);
+    bool check = imwrite(CAM_IMG_PATH, src);
   
     // if the image is not saved 
     if (check == false) { 

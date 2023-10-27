@@ -1,41 +1,39 @@
-#ifndef _sample_Init_Handler_H_
-#define _sample_Init_Handler_H_
+#ifndef _ADAS_V1_Handler_H_
+#define _ADAS_V1_Handler_H_
 
-#include <unistd.h>
 #include <iostream>
-#include <vector>
 #include "inc/cc_device_common.hpp"
 
-class sampleInitHandler
+class adasV1Handler
 {
     private:
 
     /// @brief Static pointer instance to make this class singleton.
-    static sampleInitHandler* m_pInstance;
+    static adasV1Handler* m_pInstance;
 
     public:
     /// @brief Public static method getInstance(). This function is
     // responsible for object creation.
-    static sampleInitHandler* getInstance();
+    static adasV1Handler* getInstance();
 
-    /// @brief initialize crm to check for podman running status. Also check and create folders for atos
-    /// and trimble inside /vapp, /vappdata and /vapplog folders
-    bool sample_init();
+    /// @brief process the image from folder
+    /// @return returns the detected classes along with coordinates as JSON string
+    string adasV1_output();
 
     private:
 
     /// @brief Define constructor in the private section to make this class as singleton.
-    sampleInitHandler() = default;
+    adasV1Handler() = default;
 
     /// @brief Define destructor in private section, so no one can delete the instance of this class.
-    ~sampleInitHandler() = default;
+    ~adasV1Handler() = default;
 
     /// @brief Define copy constructor in the private section, so that no one can voilate the singleton policy of this class
-    sampleInitHandler(const sampleInitHandler& obj){}
+    adasV1Handler(const adasV1Handler& obj){}
 
     /// @brief Define assignment operator in the private section, so that no one can voilate the singleton policy of this class
-    void operator=(const sampleInitHandler& obj){}
+    void operator=(const adasV1Handler& obj){}
 
 };
 
-#endif // End of _sample_Init_Handler_H_
+#endif // End of _ADAS_V1_Handler_H_

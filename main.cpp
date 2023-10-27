@@ -1,22 +1,18 @@
-#include "inc/sample_init_handler.hpp"
+#include "inc/cc_device_adas_v1_handler.hpp"
 #include "inc/cc_device_img_capture_handler.hpp"
 
 int main()
 {
-    bool sampleInitStatus = sampleInitHandler::getInstance()->sample_init();
+    bool imageCapture = ImgCaptureHandler::getInstance()->getImage();
 
-    if (sampleInitStatus) {
-        cout<< "Sample Init Handle is SUCCESSFUL"<<endl;
-
-        /* Perform update for the remaining */
-        if (ImgCaptureHandler::getInstance()->getImage()) {
-            cout<<"Img Handle Initialization"<<endl;
-        }
-    }
-    else {
-        cout << "Sample init failed" << endl;
+    if(!imageCapture){
+        cout << "ERROR: Failed to capture image" << endl;
+        cout << "Exiting process" << endl;
+        return 0;
     }
 
-    cout << "Sample exiting..." << endl;
+    string adasV1Response = adasV1Handler::getInstance()->adasV1_output();
+    cout<< adasV1Response <<endl;
+
     return 0;
 }
