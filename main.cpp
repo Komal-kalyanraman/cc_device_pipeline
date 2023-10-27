@@ -1,4 +1,5 @@
 #include "inc/sample_init_handler.hpp"
+#include "inc/cc_device_img_capture_handler.hpp"
 
 int main()
 {
@@ -8,7 +9,7 @@ int main()
         cout<< "Sample Init Handle is SUCCESSFUL"<<endl;
 
         /* Perform update for the remaining */
-        if ("true" == ImgCaptureHandler::getInstance()->getValue()) {
+        if (ImgCaptureHandler::getInstance()->getImage()) {
             cout<<"Img Handle Initialization"<<endl;
         }
     }

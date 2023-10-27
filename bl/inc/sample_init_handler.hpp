@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <iostream>
 #include <vector>
-#include "inc/cc_device_img_capture_handler.hpp"
+#include "inc/cc_device_common.hpp"
 
 class sampleInitHandler
 {

@@ -4,6 +4,7 @@
 #include "opencv2/highgui.hpp"
 #include "opencv2/imgproc.hpp"
 #include <sstream>
+#include <iostream>
 
 using namespace std;
 
@@ -27,38 +28,32 @@ ImgCaptureHandler* ImgCaptureHandler::getInstance()
     return m_pInstance;
 }
 
-string ImgCaptureHandler::getValue()
+bool ImgCaptureHandler::getImage()
 {
-    char key = 'r';
-
     cv::VideoCapture camera(CAMERA_NO);
 
-    cv::Mat src, gray, filename;
+    cv::Mat src;
 
-    camera.set(3,IMG_WIDTH);	//for setting o/p image resolution
+    camera.set(3,IMG_WIDTH);	// For setting o/p image resolution
     camera.set(4,IMG_HEIGT);
 
     camera >> src;
 
-    while(1)
-    {
-    camera >> src;
-
-    // Check if image is loaded fine
     if(src.empty()){
-        printf(" Error opening image\n");
-        printf(" Failed to open camera number: %d \n", CAMERA_NO);
-        return "false";
+        cout<<"Failed to open camera number: "<< CAMERA_NO <<endl;
+        return false;
     }
 
-    cv::imshow("Detected circles", src);
-    key=cv::waitKey(1);
+    // writing the image to a defined location as JPG
+    bool check = imwrite(IMG_PATH, src);
+  
+    // if the image is not saved 
+    if (check == false) { 
+        cout << "Mission - Saving the image, FAILED" << endl; 
+        return false; 
+    } 
+  
+    cout << "Successfully saved the image. " << endl; 
 
-    if(key == 'q')
-    break;
-    }
-
-    string value = "true";
-
-    return value;
+    return true;
 }

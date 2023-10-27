@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(sample VERSION 1.0 LANGUAGES CXX)
+project(cc_device VERSION 1.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_EXTENSIONS ON)
@@ -41,24 +41,24 @@ if(GTEST)
   add_subdirectory(unitTests)
 endif()
 
-add_executable(SAMPLE
+add_executable(CC_DEVICE
   main.cpp
 )
 
-target_link_libraries(SAMPLE
+target_link_libraries(CC_DEVICE
   ${OpenCV_LIBS}
-  sample_bl
-  sample_common
+  cc_device_bl
+  cc_device_common
 )
 
 # Set the path to the directory where all project artifacts should be installed, based on config option from cmake
 if(NOT DEFINED VAL_INSTALL_DIR)
-	set(VAL_INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/sample)
+	set(VAL_INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/cc_device)
 endif()
 
 add_compile_definitions(VAL_INSTALL_DIR="${VAL_INSTALL_DIR}")
 
 # Install targets
-install(TARGETS SAMPLE
+install(TARGETS CC_DEVICE
   RUNTIME DESTINATION ${VAL_INSTALL_DIR}
 )

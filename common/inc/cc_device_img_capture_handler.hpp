@@ -5,7 +5,7 @@
 #include "cc_device_common.hpp"
 #include <string>
 
-/// @brief Defining ConfigHandler as singleton class Easy to access across the multiple classes The responsibility of this class is to parse the
+/// @brief Defining ImgCaptureHandler as singleton class Easy to access across the multiple classes
 
 class ImgCaptureHandler
 {
@@ -17,9 +17,9 @@ class ImgCaptureHandler
     /// @brief Public static method getInstance(). This function is responsible for object creation.
     static ImgCaptureHandler* getInstance();
 
-    /// @brief get the value from containerManagement.conf file based on key
-    /// @return value
-    std::string getValue();
+    /// @brief capture image form camera and save it in a location
+    /// @return status as success or failure
+    bool getImage();
 
   private:
     /// @brief  Define constructor in the private section to make this class as singleton.
