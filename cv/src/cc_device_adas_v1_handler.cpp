@@ -16,5 +16,5 @@ adasV1Handler* adasV1Handler::getInstance()
 string adasV1Handler::adasV1_output()
 {
     cout << "Output from adas v1 model" << endl;
-    return "{adas v1 JSON response here}";
+    return "{ adas v1 JSON response here }";
 }

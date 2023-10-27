@@ -4,6 +4,7 @@ project(cc_device VERSION 1.0 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_EXTENSIONS ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 # Warning flags
 SET(WARNING_FLAG OFF)     # On for showing the warning
 if(WARNING_FLAG)
@@ -28,10 +29,10 @@ find_package( OpenCV REQUIRED )
 
 include_directories(${OpenCV_INCLUDE_DIRS})
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
-include_directories("${PROJECT_SOURCE_DIR}/bl")
+include_directories("${PROJECT_SOURCE_DIR}/cv")
 include_directories("${PROJECT_SOURCE_DIR}/common")
 
-add_subdirectory(bl)
+add_subdirectory(cv)
 add_subdirectory(common)
 
 ####### GTests ########
@@ -47,7 +48,7 @@ add_executable(CC_DEVICE
 
 target_link_libraries(CC_DEVICE
   ${OpenCV_LIBS}
-  cc_device_bl
+  cc_device_cv
   cc_device_common
 )
 

@@ -37,7 +37,7 @@ bool ImgCaptureHandler::getImage()
     camera >> src;
 
     if(src.empty()){
-        cout<<"Failed to open camera number: "<< CAMERA_NO <<endl;
+        cout<<"Failed to open camera number: "<< CAMERA_NO << endl << endl;
         return false;
     }
 
@@ -46,11 +46,11 @@ bool ImgCaptureHandler::getImage()
   
     // if the image is not saved 
     if (check == false) { 
-        cout << "Mission - Saving the image, FAILED" << endl; 
+        cout << "Mission - Saving the image, FAILED" << endl << endl; 
         return false; 
     } 
   
-    cout << "Successfully saved the image. " << endl; 
+    cout << "Successfully saved the image. " << endl << endl; 
 
     return true;
 }
