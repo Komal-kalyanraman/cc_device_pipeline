@@ -7,11 +7,6 @@ int main()
     if (sampleInitStatus) {
         cout<< "Sample Init Handle is SUCCESSFUL"<<endl;
 
-        // /* Perform update for the remaining */
-        // if ("true" == ConfigHandler::getInstance()->getValue()) {
-        //     cout<<"Config Handle Initialization"<<endl;
-        // }
-
         /* Perform update for the remaining */
         if ("true" == ImgCaptureHandler::getInstance()->getValue()) {
             cout<<"Img Handle Initialization"<<endl;
