@@ -3,9 +3,6 @@
 
 // C++ Header File(s)
 #include "cc_device_common.hpp"
-#include "opencv2/imgcodecs.hpp"
-#include "opencv2/highgui.hpp"
-#include "opencv2/imgproc.hpp"
 #include <string>
 
 /// @brief Defining ConfigHandler as singleton class Easy to access across the multiple classes The responsibility of this class is to parse the
