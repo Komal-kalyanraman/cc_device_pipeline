@@ -26,6 +26,7 @@ endif()
 
 find_package( OpenCV REQUIRED )
 
+include_directories(${OpenCV_INCLUDE_DIRS})
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories("${PROJECT_SOURCE_DIR}/bl")
 include_directories("${PROJECT_SOURCE_DIR}/common")

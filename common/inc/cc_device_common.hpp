@@ -2,10 +2,7 @@
 #ifndef _CC_DEVICE_COMMON_H_
 #define _CC_DEVICE_COMMON_H_
 
-#include <map>
 #include <string>
-#include <tuple>
-#include <vector>
 
 using namespace std;
 
