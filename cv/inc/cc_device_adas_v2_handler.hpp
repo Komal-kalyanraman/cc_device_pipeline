@@ -1,5 +1,5 @@
-#ifndef _ADAS_V2_Handler_H_
-#define _ADAS_V2_Handler_H_
+#ifndef _ADAS_V2_HANDLER_H_
+#define _ADAS_V2_HANDLER_H_
 
 #include <iostream>
 #include "inc/cc_device_common.hpp"
@@ -18,7 +18,7 @@ class adasV2Handler
 
     /// @brief process the image from folder
     /// @return returns the detected classes along with coordinates as JSON string
-    string adasV2_output();
+    bool adasV2_output();
 
     private:
 
@@ -36,4 +36,4 @@ class adasV2Handler
 
 };
 
-#endif // End of _ADAS_V2_Handler_H_
+#endif // End of _ADAS_V2_HANDLER_H_

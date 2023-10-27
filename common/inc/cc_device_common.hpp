@@ -3,6 +3,7 @@
 #define _COMMON_H_
 
 #include <string>
+#include <map>
 
 using namespace std;
 
@@ -14,6 +15,8 @@ const string CAM_IMG_PATH       = "../data/image/cam_img.jpg";
 const string ADAS_V1_IMG_PATH   = "../data/image/adas_v1_img.jpg";
 const string BIG_MODEL_IMG_PATH = "../data/image/big_model_img.jpg";
 const string ADAS_V2_IMG_PATH   = "../data/image/adas_v2_img.jpg";
+
+inline map<string, string> detection;
 
 #define NULL_PTR 0
 

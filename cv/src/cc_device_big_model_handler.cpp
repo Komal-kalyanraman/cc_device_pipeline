@@ -13,8 +13,8 @@ bigModelHandler* bigModelHandler::getInstance()
     return m_pInstance;
 }
 
-string bigModelHandler::bigModel_output()
+bool bigModelHandler::bigModel_output()
 {
-    cout << "Output from big model" << endl;
-    return "{ Big model JSON response here }";
+    detection["big_model"] = "{ Big model JSON response here }";
+    return true;
 }

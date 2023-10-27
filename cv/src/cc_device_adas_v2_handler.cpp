@@ -13,8 +13,8 @@ adasV2Handler* adasV2Handler::getInstance()
     return m_pInstance;
 }
 
-string adasV2Handler::adasV2_output()
+bool adasV2Handler::adasV2_output()
 {
-    cout << "Output from adas v2 model" << endl;
-    return "{ adas v2 JSON response here }";
+    detection["adas_v2"] = "{ adas v2 JSON response here }";
+    return true;
 }

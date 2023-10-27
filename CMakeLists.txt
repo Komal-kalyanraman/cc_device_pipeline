@@ -26,12 +26,15 @@ if(WARNING_FLAG)
 endif()
 
 find_package( OpenCV REQUIRED )
+find_package(nlohmann_json 3.7.3 REQUIRED)
 
 include_directories(${OpenCV_INCLUDE_DIRS})
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
+include_directories("${PROJECT_SOURCE_DIR}/bl")
 include_directories("${PROJECT_SOURCE_DIR}/cv")
 include_directories("${PROJECT_SOURCE_DIR}/common")
 
+add_subdirectory(bl)
 add_subdirectory(cv)
 add_subdirectory(common)
 
@@ -48,6 +51,8 @@ add_executable(CC_DEVICE
 
 target_link_libraries(CC_DEVICE
   ${OpenCV_LIBS}
+  nlohmann_json::nlohmann_json
+  cc_device_bl
   cc_device_cv
   cc_device_common
 )

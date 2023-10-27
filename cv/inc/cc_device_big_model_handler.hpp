@@ -1,5 +1,5 @@
-#ifndef _BIG_MODEL_Handler_H_
-#define _BIG_MODEL_Handler_H_
+#ifndef _BIG_MODEL_HANDLER_H_
+#define _BIG_MODEL_HANDLER_H_
 
 #include <iostream>
 #include "inc/cc_device_common.hpp"
@@ -18,7 +18,7 @@ class bigModelHandler
 
     /// @brief process the image from folder
     /// @return returns the detected classes along with coordinates as JSON string
-    string bigModel_output();
+    bool bigModel_output();
 
     private:
 
@@ -36,4 +36,4 @@ class bigModelHandler
 
 };
 
-#endif // End of _BIG_MODEL_Handler_H_
+#endif // End of _BIG_MODEL_HANDLER_H_
