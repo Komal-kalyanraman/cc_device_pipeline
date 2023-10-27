@@ -24,16 +24,14 @@ if(WARNING_FLAG)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wl,--exclude-libs,ALL")
 endif()
 
-find_package(Threads REQUIRED)
+# find_package(Threads REQUIRED)
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories("${PROJECT_SOURCE_DIR}/bl")
 include_directories("${PROJECT_SOURCE_DIR}/common")
-include_directories("${PROJECT_SOURCE_DIR}/threadHandler")
 
 add_subdirectory(bl)
 add_subdirectory(common)
-add_subdirectory(threadHandler)
 
 ####### GTests ########
 SET(GTEST OFF)     # On for build the unitest, off for not
@@ -47,12 +45,10 @@ add_executable(SAMPLE
 )
 
 target_link_libraries(SAMPLE
-  ${CMAKE_THREAD_LIBS_INIT}
+  # ${CMAKE_THREAD_LIBS_INIT}
   sample_bl
   sample_common
-  sample_threadHandler
   librt.so
-  pthread
 )
 
 # Set the path to the directory where all project artifacts should be installed, based on config option from cmake

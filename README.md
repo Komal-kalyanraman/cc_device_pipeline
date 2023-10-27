@@ -6,4 +6,3 @@ A standard template for C++ projects
 3. Run "make" command
 4. This will create a binary by name "SAMPLE"
 5. Run the binary by executing "./SAMPLE"
-
