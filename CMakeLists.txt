@@ -49,7 +49,6 @@ target_link_libraries(SAMPLE
   ${OpenCV_LIBS}
   sample_bl
   sample_common
-  librt.so
 )
 
 # Set the path to the directory where all project artifacts should be installed, based on config option from cmake
