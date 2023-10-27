@@ -51,7 +51,6 @@ add_executable(CC_DEVICE
 
 target_link_libraries(CC_DEVICE
   ${OpenCV_LIBS}
-  nlohmann_json::nlohmann_json
   cc_device_bl
   cc_device_cv
   cc_device_common
