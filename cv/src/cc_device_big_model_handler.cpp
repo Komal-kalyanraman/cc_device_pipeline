@@ -15,6 +15,8 @@ bigModelHandler* bigModelHandler::getInstance()
 
 bool bigModelHandler::bigModel_output()
 {
+    string output_path = IMG_PATH + time_stamp + BIG_MODEL_IMG;
+    
     detection["big_model"] = "{ Big model JSON response here }";
     return true;
 }

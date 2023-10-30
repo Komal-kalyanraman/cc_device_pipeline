@@ -2,6 +2,8 @@
 #include "inc/cc_device_img_capture_handler.hpp"
 #include "opencv2/highgui.hpp"
 #include <iostream>
+#include <iomanip>
+#include <sstream>
 
 using namespace std;
 
@@ -41,8 +43,18 @@ bool ImgCaptureHandler::getImage()
         return false;
     }
 
+    auto now = std::chrono::system_clock::now();
+    auto in_time_t = std::chrono::system_clock::to_time_t(now);
+    
+    std::stringstream datetime;
+    datetime << std::put_time(std::localtime(&in_time_t), "%Y-%m-%d %X");
+
+    time_stamp = datetime.str();
+
+    string output_path = IMG_PATH + time_stamp + CAM_IMG;
+
     // writing the image to a defined location as JPG
-    bool check = imwrite(CAM_IMG_PATH, src);
+    bool check = imwrite(output_path, src);
   
     // if the image is not saved 
     if (check == false) { 
@@ -50,7 +62,7 @@ bool ImgCaptureHandler::getImage()
         return false; 
     } 
   
-    cout << "Successfully saved the image. " << endl << endl; 
+    cout << "Successfully saved the image. " << endl << endl;
 
     return true;
 }

@@ -15,6 +15,8 @@ adasV2Handler* adasV2Handler::getInstance()
 
 bool adasV2Handler::adasV2_output()
 {
+    string output_path = IMG_PATH + time_stamp + ADAS_V2_IMG;
+    
     detection["adas_v2"] = "{ adas v2 JSON response here }";
     return true;
 }

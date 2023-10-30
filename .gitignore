@@ -1,7 +1,4 @@
 .vscode/
 build/
 
-data/image/cam_img.jpg
-data/image/adas_v1_img.jpg
-data/image/big_model_img.jpg
-data/image/adas_v2_img.jpg
+data/image/*.jpg
