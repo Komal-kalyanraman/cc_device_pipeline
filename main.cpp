@@ -3,6 +3,7 @@
 #include "inc/cc_device_adas_v2_handler.hpp"
 #include "inc/cc_device_img_capture_handler.hpp"
 #include "inc/cc_device_data_aggregator_handler.hpp"
+#include "inc/cc_device_convert_image_bytestream.hpp"
 
 int main()
 {
@@ -43,6 +44,11 @@ int main()
         cout << "Exiting process" << endl << endl;
         return 0;
     }
-    
+
+    string path = IMG_PATH + time_stamp + CAM_IMG;
+
+    image_byteStream = ImageConverter::getInstance()->mat2str(path);
+    cout << image_byteStream << endl;
+
     return 0;
 }

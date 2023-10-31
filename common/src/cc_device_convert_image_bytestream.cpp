@@ -1,7 +1,17 @@
-#include "inc/cc_device_convert_image.h"
 #include "opencv2/highgui.hpp"
+#include "inc/cc_device_convert_image_bytestream.hpp"
 
-ImagemConverter::ImagemConverter() {} 
+ImageConverter* ImageConverter::m_pInstance = NULL_PTR;
+
+ImageConverter::ImageConverter() {} 
+
+ImageConverter* ImageConverter::getInstance()
+{
+    if (NULL_PTR == m_pInstance) {
+        m_pInstance = new ImageConverter;
+    }
+    return m_pInstance;
+}
 
 static const std::string base64_chars =
 "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -13,7 +23,7 @@ static inline bool is_base64( unsigned char c )
 	return (isalnum(c) || (c == '+') || (c == '/'));
 }
 
-std::string ImagemConverter::base64_encode(uchar const* bytes_to_encode, unsigned int in_len) 
+std::string ImageConverter::base64_encode(uchar const* bytes_to_encode, unsigned int in_len) 
 {
 	std::string ret;
 
@@ -66,7 +76,7 @@ std::string ImagemConverter::base64_encode(uchar const* bytes_to_encode, unsigne
 	return ret;
 }
 
-std::string ImagemConverter::base64_decode(std::string const& encoded_string)
+std::string ImageConverter::base64_decode(std::string const& encoded_string)
 {
 	int in_len = encoded_string.size();
 	int i = 0;
@@ -124,8 +134,11 @@ std::string ImagemConverter::base64_decode(std::string const& encoded_string)
 	return ret;
 }
 
-string ImagemConverter::mat2str(const Mat& m)
+string ImageConverter::mat2str(const string& img_path)
 {
+	cv::Mat m;
+	m = cv::imread(img_path);
+
 	int params[3] = {0};
 	params[0] = cv::IMWRITE_JPEG_QUALITY;
 	params[1] = 100;
@@ -135,12 +148,9 @@ string ImagemConverter::mat2str(const Mat& m)
 	uchar* result = reinterpret_cast<uchar*> (&buf[0]);
 
 	return base64_encode(result, buf.size());
-
 }
 
-
-
-Mat ImagemConverter::str2mat(const string& s)
+Mat ImageConverter::str2mat(const string& s)
 {
 	// Decode data
 	string decoded_string = base64_decode(s);
@@ -150,7 +160,7 @@ Mat ImagemConverter::str2mat(const string& s)
 	return img;
 }
 
-ImagemConverter::~ImagemConverter()
+ImageConverter::~ImageConverter()
 {
 	// TODO Auto-generated destructor stub
 }
