@@ -3,6 +3,7 @@
 #include <nlohmann/json.hpp>
 #include <iostream>
 #include <iomanip>
+#include <fstream>
 
 using json = nlohmann::json;
 using namespace std;
@@ -19,11 +20,15 @@ dataAggregatorHandler* dataAggregatorHandler::getInstance()
 
 bool dataAggregatorHandler::dataAggregator_output()
 {
-    for(auto it = detection.begin(); it != detection.end(); it++){
-        cout << it->first << " " << it->second << endl << endl;
-    }
+    string file_path = UPLOAD_PATH + time_stamp + TEXT_FILE;
+    ofstream UndetectedObjectsFile(file_path);
+    UndetectedObjectsFile << detection["big_model"];
 
-    cout << std::setw(4) << json::meta() << endl;
-
+    string image_src_path   = IMG_PATH + time_stamp + CAM_IMG;
+    string image_dest_path  = UPLOAD_PATH + time_stamp + IMG_FILE;
+    std::ifstream src(image_src_path, std::ios::binary);
+    std::ofstream dest(image_dest_path, std::ios::binary);
+    dest << src.rdbuf(); 
+    
     return true;
 }

@@ -2,3 +2,6 @@
 build/
 
 data/image/*.jpg
+
+data/upload/*.jpg
+data/upload/*.txt

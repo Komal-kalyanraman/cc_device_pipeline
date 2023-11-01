@@ -14,12 +14,15 @@ const int IMG_HEIGT = 480;
 inline string time_stamp;
 inline string image_byteStream;
 
-const string IMG_PATH = "../data/image/";
+const string UPLOAD_PATH    = "../data/upload/";
+const string TEXT_FILE      = ".txt";
+const string IMG_FILE       = ".jpg";
 
-const string CAM_IMG       = "cam_img.jpg";
-const string ADAS_V1_IMG   = "adas_v1_img.jpg";
-const string BIG_MODEL_IMG = "big_model_img.jpg";
-const string ADAS_V2_IMG   = "adas_v2_img.jpg";
+const string IMG_PATH       = "../data/image/";
+const string CAM_IMG        = "cam_img.jpg";
+const string ADAS_V1_IMG    = "adas_v1_img.jpg";
+const string BIG_MODEL_IMG  = "big_model_img.jpg";
+const string ADAS_V2_IMG    = "adas_v2_img.jpg";
 
 inline map<string, string> detection;
 

@@ -56,7 +56,7 @@ bool ImgCaptureHandler::getImage()
 
     time_stamp = datetime.str();
     std::replace(time_stamp.begin(), time_stamp.end(), ' ', '|');
-    time_stamp = "(" + time_stamp + ")";
+    time_stamp = "[" + time_stamp + "]";
 
     string output_path = IMG_PATH + time_stamp + CAM_IMG;
 

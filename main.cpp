@@ -20,7 +20,6 @@ int main()
         cout << "Exiting process" << endl << endl;
         return 0;
     }
-    cout << detection["adas_v1"] << endl << endl;
 
     bool bigModelSuccess = bigModelHandler::getInstance()->bigModel_output();
     if(!bigModelSuccess){
@@ -28,15 +27,6 @@ int main()
         cout << "Exiting process" << endl << endl;
         return 0;
     }
-    cout << detection["big_model"] << endl << endl;
-
-    bool adasV2Success = adasV2Handler::getInstance()->adasV2_output();
-    if(!adasV2Success){
-        cout<< "ERROR: adas v2 model failed to process image"<< endl;
-        cout << "Exiting process" << endl << endl;
-        return 0;
-    }
-    cout << detection["adas_v2"] << endl << endl;
 
     bool dataAggregatorSuccess = dataAggregatorHandler::getInstance()->dataAggregator_output();
     if(!dataAggregatorSuccess){
@@ -46,9 +36,8 @@ int main()
     }
 
     string path = IMG_PATH + time_stamp + CAM_IMG;
-
     image_byteStream = ImageConverter::getInstance()->mat2str(path);
-    cout << image_byteStream << endl;
+    // cout << image_byteStream << endl;
 
     return 0;
 }
