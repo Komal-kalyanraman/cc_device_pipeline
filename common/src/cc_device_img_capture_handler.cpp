@@ -55,9 +55,7 @@ bool ImgCaptureHandler::getImage()
     datetime << std::put_time(std::localtime(&in_time_t), "%Y-%m-%d %X");
 
     time_stamp = datetime.str();
-    std::replace(time_stamp.begin(), time_stamp.end(), ' ', '|');
-    time_stamp = "[" + time_stamp + "]";
-
+    std::replace(time_stamp.begin(), time_stamp.end(), ' ', '_');
     string output_path = IMG_PATH + time_stamp + CAM_IMG;
 
     // writing the image to a defined location as JPG
