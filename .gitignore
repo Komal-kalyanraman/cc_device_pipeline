@@ -5,3 +5,5 @@ data/image/*.jpg
 
 data/upload/*.jpg
 data/upload/*.txt
+
+data/*.zip

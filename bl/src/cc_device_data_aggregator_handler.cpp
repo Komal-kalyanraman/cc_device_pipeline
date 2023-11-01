@@ -30,10 +30,9 @@ bool dataAggregatorHandler::dataAggregator_output()
     std::ofstream dest(image_dest_path, std::ios::binary);
     dest << src.rdbuf(); 
     
-    // string command = "zip -r ../data/" + time_stamp + ".zip ../data/upload";
-    // cout << command << endl;
-    // const char* cc = command.c_str();
-    // system(cc);
+    string command = "zip -r ../data/" + time_stamp + ".zip ../data/upload";
+    const char* cc = command.c_str();
+    system(cc);
 
     return true;
 }
