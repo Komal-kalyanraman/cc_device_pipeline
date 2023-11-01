@@ -64,8 +64,7 @@ bool ImgCaptureHandler::getImage()
     if (check == false) { 
         cout << "Mission - Saving the image, FAILED" << endl << endl; 
         return false; 
-    } 
-  
+    }
     cout << "Successfully saved the image. " << endl << endl;
 
     return true;

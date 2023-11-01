@@ -39,5 +39,9 @@ int main()
     image_byteStream = ImageConverter::getInstance()->mat2str(path);
     // cout << image_byteStream << endl;
 
+    // system("rm -rf ../data/image/*.jpg");
+    // system("rm -rf ../data/upload/*.jpg");
+    // system("rm -rf ../data/upload/*.txt");
+
     return 0;
 }
