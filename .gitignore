@@ -1,9 +1,9 @@
 .vscode/
-build/
+code/build/
 
-data/image/*.jpg
+code/data/image/*.jpg
 
-data/upload/*.jpg
-data/upload/*.txt
+code/data/upload/*.jpg
+code/data/upload/*.txt
 
-data/*.zip
+code/data/*.zip
