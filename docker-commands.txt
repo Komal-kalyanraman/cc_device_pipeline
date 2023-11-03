@@ -1,0 +1,14 @@
+
+Building an image                       : docker build -t <image-name:with-tag> .
+Running an image                        : docker run --name <container-name> -d -it <image-name:with-tag>
+
+list of images                          : docker images
+list of running containers              : docker ps -a
+
+deleting images                         : docker rmi -f <image-ID>
+stopping and deleting containers        : docker rm -f <container-name>
+
+stopping & deleting all containers      : docker rm $(docker ps -aq)
+stopping & deleting exited containers   : docker rm $(docker ps -aq --filter  status="exited")
+
+getting into a running container        : docker exec -it <container-name> /bin/bash 
