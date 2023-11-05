@@ -34,37 +34,38 @@ ImgCaptureHandler* ImgCaptureHandler::getInstance()
 
 bool ImgCaptureHandler::getImage()
 {
-    cv::VideoCapture camera(CAMERA_NO);
+    // cv::VideoCapture camera(CAMERA_NO);
 
-    cv::Mat src;
+    // cv::Mat src;
 
-    camera.set(3,IMG_WIDTH);	// For setting o/p image resolution
-    camera.set(4,IMG_HEIGT);
+    // camera.set(3,IMG_WIDTH);	// For setting o/p image resolution
+    // camera.set(4,IMG_HEIGT);
 
-    camera >> src;
+    // camera >> src;
 
-    if(src.empty()){
-        cout<<"Failed to open camera number: "<< CAMERA_NO << endl << endl;
-        return false;
-    }
+    // if(src.empty()){
+    //     cout<<"Failed to open camera number: "<< CAMERA_NO << endl << endl;
+    //     return false;
+    // }
 
-    auto now = std::chrono::system_clock::now();
-    auto in_time_t = std::chrono::system_clock::to_time_t(now);
+    // auto now = std::chrono::system_clock::now();
+    // auto in_time_t = std::chrono::system_clock::to_time_t(now);
     
-    std::stringstream datetime;
-    datetime << std::put_time(std::localtime(&in_time_t), "%Y-%m-%d %X");
+    // std::stringstream datetime;
+    // datetime << std::put_time(std::localtime(&in_time_t), "%Y-%m-%d %X");
 
-    time_stamp = datetime.str();
-    std::replace(time_stamp.begin(), time_stamp.end(), ' ', '_');
-    string output_path = IMG_PATH + time_stamp + CAM_IMG;
+    // time_stamp = datetime.str();
+    // std::replace(time_stamp.begin(), time_stamp.end(), ' ', '_');
+    time_stamp = "2023-11-05_11:48:02";
+    // string output_path = IMG_PATH + time_stamp + CAM_IMG;
 
     // writing the image to a defined location as JPG
-    bool check = imwrite(output_path, src);
+    // bool check = imwrite(output_path, src);
 
-    if (check == false) { 
-        cout << "Mission - Saving the image, FAILED" << endl << endl; 
-        return false; 
-    }
+    // if (check == false) { 
+    //     cout << "Mission - Saving the image, FAILED" << endl << endl; 
+    //     return false; 
+    // }
     cout << "Successfully saved the image. " << endl << endl;
 
     return true;

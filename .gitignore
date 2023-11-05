@@ -1,7 +1,7 @@
 .vscode/
 code/build/
 
-code/data/image/*.jpg
+# code/data/image/*.jpg
 
 code/data/upload/*.jpg
 code/data/upload/*.txt
