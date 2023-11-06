@@ -31,8 +31,11 @@ RUN apt-get update \
  
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# RUN apt-get update && apt-get install -y --fix-missing \
-    # && apt-get install -y -f libopencv-dev
+ENV TZ=Asia/Singapore
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y --fix-missing \
+    && apt-get install -y -f libopencv-dev
 
 COPY code ./code
 
