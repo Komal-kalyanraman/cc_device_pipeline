@@ -56,7 +56,7 @@ bool ImgCaptureHandler::getImage()
 
     // time_stamp = datetime.str();
     // std::replace(time_stamp.begin(), time_stamp.end(), ' ', '_');
-    time_stamp = "2023-11-05_11:48:02";
+    time_stamp = "2023-11-06_10:17:14";
     // string output_path = IMG_PATH + time_stamp + CAM_IMG;
 
     // writing the image to a defined location as JPG
